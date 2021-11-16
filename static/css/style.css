@@ -1,0 +1,289 @@
+*{
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+/*body{
+	background: url("bg.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+ }*/
+.banner-text{
+	text-align: center;
+	color: rgb(255, 255, 255);
+	padding-top: 180px;
+}
+.banner-text h1{
+    font-size: 130px;
+	font-family: 'Grandstander', cursive;
+}
+.banner-text p{
+	font-size: 20px;
+	font-family: 'WindSong', cursive;
+}
+.banner-btn{
+	margin: 40px auto 0;
+}
+.banner-btn a{
+	width: 150px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 12px 0;
+	color: #fff;
+	border: .5px solid #fff;
+	position: relative;
+	z-index: 1;
+	transition: color 0.5s;
+}
+.banner-btn a span{
+	width: 0%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgb(171, 151, 236);
+	z-index: -1;
+	transition: 0.5s;
+}
+.banner-btn a:hover span{
+	width: 100%;
+}
+.banner-btn a:hover {
+	color: rgb(0, 0, 0);
+}
+
+/*-----navbar-----*/
+
+
+#sidenav{
+	width: 200px;
+	height: 100vh;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background: #2e0f92;
+	z-index: 2;
+	transition: 0.5s;
+}
+nav ul li{
+	list-style: none;
+	margin: 50px 20px;
+}
+nav ul li a{
+	text-decoration: none;
+	color: #fff;
+}
+#menubtn{
+	width: 50px;
+	height: 50px;
+	background: #230096;
+	text-align: center;
+	position: fixed;
+	right: 30px;
+	top: 20px;
+	border-radius: 3px;
+	z-index: 3;
+	cursor: pointer;
+}
+#menubtn img{
+	width: 20px;
+	margin-top: 15px;
+}
+@media screen and (max-width: 770px) {
+	.banner-text h1{
+		font-size: 44px;
+}
+.banner-btn a{
+	margin: auto;
+	display: block;
+}
+}
+
+
+
+/*--About--*/
+
+#about{
+	width: 100%;
+	padding: 50px 0;
+}
+.title-text{
+	padding-left: 70px;
+	padding-bottom: 70px;
+}
+.title-text h1{
+	text-align: left;
+	margin-bottom: 10px;
+	font-weight: 100;
+	color: rgb(10, 88, 189);
+}
+hr { 
+	width: 40%;
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	border-style: inset;
+	border-width: 1px;
+  } 
+  .about-desc{
+	  display: flex;
+	  align-items: center;
+	  margin-bottom: 40px;
+  }
+  .about-text p{
+	  padding: 0 20px;
+	  text-align: initial;
+  }
+  @media screen and (max-width: 770px) {
+	.title-text h1{
+		font-size: 30px;
+	}
+	.about-desc{
+		flex-basis: 100%;
+	}
+  }
+
+
+  #gallery{
+	  width: 100%;
+	  padding: 70px 0;
+	  background: #efefef;
+  }
+  .gallery-box{
+	  width: 40%;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-around;
+	  margin: auto;
+  }
+  .galler1{
+	flex-basis: 48%;
+	text-align: center;
+	border-radius: 7px;
+	margin-bottom: 20px;
+	color: #fff;
+	position: relative;
+  }
+  .galler1 img{
+	  width: 100%;
+	  border-radius: 7px;
+  }
+.overlay{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	border-radius: 7px;
+	cursor: pointer;
+	background: linear-gradient(rgba(0,0,0,0.3),#230096);
+	opacity: 0;
+	transition: .5s;
+}
+.galler1:hover .overlay{
+	opacity: 1;
+}
+.gallery-desc{
+	width: 80%;
+	position: absolute;
+	bottom: 0%;
+	left: 50%;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: 1s;
+}
+.gallery-desc hr{
+	position:relative;
+	margin:15px auto;
+	background: #fff;
+	height: 2px;
+	border: 0;
+	width: 60%;
+}
+.gallery-desc p{
+	font-size: 20px;
+}
+.galler1:hover .gallery-desc{
+	bottom: 40%;
+	opacity: 1;
+}
+@media screen and (max-width: 770px){
+	.galler1{
+		flex-basis: 100%;
+		margin-bottom: 30px;
+	}
+	.gallery-desc p{
+		font-size: 12px;
+	}
+	.gallery-desc hr{
+		margin: 5px auto;
+	}
+	.galler1:hover .gallery-desc{
+		bottom: 25% !important;
+	}
+	.gallery-box{
+		width: 70%;
+	}
+}
+
+/*---footer---*/
+
+#footer{
+	padding: 100px;
+}
+.footer-row{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.footer-right{
+	text-align: left;
+	flex-basis: 45%;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.footer-row h1{
+	margin: 10px 0;
+
+} 
+.footer-row p{
+	line-height: 35px;
+
+} 
+.footer-right .fa{
+	font-size: 20px;
+	color: #230096;
+	margin: 10px;
+}
+.social-links{
+	text-align: center;
+}
+.social-links .fa{
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	border: 1px solid #230096;
+	margin: 40px 5px 0;
+	color: #230096;
+	cursor: pointer;
+	transition: .5s;
+}
+.social-links .fa:hover{
+	background: #230096;
+	color: #fff;
+	transform: translateY(-7px);
+}
+.social-links p{
+	font-size: 12px;
+	margin-top: 20px;
+}
+@media screen and (max-width: 770px){
+	.footer-right{
+		flex-basis: 100%;
+		font-size: 14px;
+	}
+}

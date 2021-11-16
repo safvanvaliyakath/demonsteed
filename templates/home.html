@@ -1,0 +1,431 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <title>demonsteed</title>
+    <style>
+        *{
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+/*body{
+	background: url("bg.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+ }*/
+#banner{
+	background: linear-gradient(rgba(0,0,0,0.5),rgb(15, 0, 153)),url({% static 'images/bg.jpg' %});
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+}
+
+.banner-text{
+	text-align: center;
+	color: rgb(255, 255, 255);
+	padding-top: 180px;
+}
+.banner-text h1{
+    font-size: 130px;
+	font-family: 'Grandstander', cursive;
+}
+.banner-text p{
+	font-size: 20px;
+	font-family: 'WindSong', cursive;
+}
+.banner-btn{
+	margin: 40px auto 0;
+}
+.banner-btn a{
+	width: 150px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 12px 0;
+	color: #fff;
+	border: .5px solid #fff;
+	position: relative;
+	z-index: 1;
+	transition: color 0.5s;
+}
+.banner-btn a span{
+	width: 0%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgb(171, 151, 236);
+	z-index: -1;
+	transition: 0.5s;
+}
+.banner-btn a:hover span{
+	width: 100%;
+}
+.banner-btn a:hover {
+	color: rgb(0, 0, 0);
+}
+
+/*-----navbar-----*/
+
+
+#sidenav{
+	width: 200px;
+	height: 100vh;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background: #2e0f92;
+	z-index: 2;
+	transition: 0.5s;
+}
+nav ul li{
+	list-style: none;
+	margin: 50px 20px;
+}
+nav ul li a{
+	text-decoration: none;
+	color: #fff;
+}
+#menubtn{
+	width: 50px;
+	height: 50px;
+	background: #230096;
+	text-align: center;
+	position: fixed;
+	right: 30px;
+	top: 20px;
+	border-radius: 3px;
+	z-index: 3;
+	cursor: pointer;
+}
+#menubtn img{
+	width: 20px;
+	margin-top: 15px;
+}
+@media screen and (max-width: 770px) {
+	.banner-text h1{
+		font-size: 44px;
+}
+.banner-btn a{
+	margin: auto;
+	display: block;
+}
+}
+
+
+
+/*--About--*/
+
+#about{
+	width: 100%;
+	padding: 50px 0;
+}
+.title-text{
+	padding-left: 70px;
+	padding-bottom: 70px;
+}
+.title-text h1{
+	text-align: left;
+	margin-bottom: 10px;
+	font-weight: 100;
+	color: rgb(10, 88, 189);
+}
+hr {
+	width: 40%;
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	border-style: inset;
+	border-width: 1px;
+  }
+  .about-desc{
+	  display: flex;
+	  align-items: center;
+	  margin-bottom: 40px;
+  }
+  .about-text p{
+	  padding: 0 20px;
+	  text-align: initial;
+  }
+  @media screen and (max-width: 770px) {
+	.title-text h1{
+		font-size: 30px;
+	}
+	.about-desc{
+		flex-basis: 100%;
+	}
+  }
+
+
+  #gallery{
+	  width: 100%;
+	  padding: 70px 0;
+	  background: #efefef;
+  }
+  .gallery-box{
+	  width: 40%;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-around;
+	  margin: auto;
+  }
+  .galler1{
+	flex-basis: 48%;
+	text-align: center;
+	border-radius: 7px;
+	margin-bottom: 20px;
+	color: #fff;
+	position: relative;
+  }
+  .galler1 img{
+	  width: 100%;
+	  border-radius: 7px;
+  }
+.overlay{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	border-radius: 7px;
+	cursor: pointer;
+	background: linear-gradient(rgba(0,0,0,0.3),#230096);
+	opacity: 0;
+	transition: .5s;
+}
+.galler1:hover .overlay{
+	opacity: 1;
+}
+.gallery-desc{
+	width: 80%;
+	position: absolute;
+	bottom: 0%;
+	left: 50%;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: 1s;
+}
+.gallery-desc hr{
+	position:relative;
+	margin:15px auto;
+	background: #fff;
+	height: 2px;
+	border: 0;
+	width: 60%;
+}
+.gallery-desc p{
+	font-size: 20px;
+}
+.galler1:hover .gallery-desc{
+	bottom: 40%;
+	opacity: 1;
+}
+@media screen and (max-width: 770px){
+	.galler1{
+		flex-basis: 100%;
+		margin-bottom: 30px;
+	}
+	.gallery-desc p{
+		font-size: 12px;
+	}
+	.gallery-desc hr{
+		margin: 5px auto;
+	}
+	.galler1:hover .gallery-desc{
+		bottom: 25% !important;
+	}
+	.gallery-box{
+		width: 70%;
+	}
+}
+
+/*---footer---*/
+
+#footer{
+	padding: 100px;
+}
+.footer-row{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.footer-right{
+	text-align: left;
+	flex-basis: 45%;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.footer-row h1{
+	margin: 10px 0;
+
+}
+.footer-row p{
+	line-height: 35px;
+
+}
+.footer-right .fa{
+	font-size: 20px;
+	color: #230096;
+	margin: 10px;
+}
+.social-links{
+	text-align: center;
+}
+.social-links .fa{
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	border: 1px solid #230096;
+	margin: 40px 5px 0;
+	color: #230096;
+	cursor: pointer;
+	transition: .5s;
+}
+.social-links .fa:hover{
+	background: #230096;
+	color: #fff;
+	transform: translateY(-7px);
+}
+.social-links p{
+	font-size: 12px;
+	margin-top: 20px;
+}
+@media screen and (max-width: 770px){
+	.footer-right{
+		flex-basis: 100%;
+		font-size: 14px;
+	}
+}
+</style>
+</head>
+<body>
+<section id="banner">
+    <div class="banner-text">
+        <h1>DEMONSTEED</h1>
+        <p>Esports</p>
+        <div class="banner-btn">
+            <a href="#about"><span></span>About</a>
+        </div>
+    </div>
+</section>
+<div id="sidenav">
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            {% if user.is_authenticated %}
+            <li><h4 style="color:cyan;">Hello {{user.username}}</h4></li>
+            <li class="active"><a href="{% url 'add' %}">Add me</a></li>
+            <li class="active"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+<div id="menubtn">
+    <img src="{% static 'images/menu.png' %}" id="menu">
+</div>
+
+   <!--ABOUT-->
+<section id="about">
+    <div class="title-text">
+        <h1>ABOUT</h1><hr>
+        <di class="about-de">
+            <div class="about-text">
+                <p>Demonsteed Esports was founded in November,2019
+                    this clan is playing players inside and outside Kerala. Besides,
+                    <br>BGMI and Pubg Global are mainly played by gamers.
+                </p>
+            </div>
+        </di>
+    </div>
+    </div>
+</section>
+
+
+   <!--Gallery-->
+<section id="gallery">
+    <div class="title-text">
+        <h1>OUR COMPETITORS</h1><hr>
+    </div>
+    <div class="gallery-box">
+        {% for i in obj1 %}
+        <div class=galler1>
+            <a href=""><img src="{{i.image.url}}"></a>
+            <div class="overlay"></div>
+            <div class="gallery-desc">
+                <a href="{% url 'detail' i.pk %}"><h3 style="color:white;">{{i.name}}</h3></a>
+                <hr>
+                <p>{{i.desc}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+   <!--footer-->
+<section id="footer">
+    <img src="" alt="">
+    <div class="title-text">
+        <h1>CONTACT</h1><hr>
+    </div>
+    <div class="footer-row">
+        <div class="footer-right">
+            <h1>Get in Touch</h1>
+            <p>Malappuram, Kerala <i class="fa fa-map-marker"></i></p>
+            <p>ddeziodd@gmail.com <i class="fa fa-paper-plane"></i></p>
+            <p>+91 9876543210 <i class="fa fa-phone"></i></p>
+        </div>
+    </div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/demonsteed_official/" class="fa fa-instagram"></a>
+        <a href="https://www.youtube.com/c/Razzotube" class="fa fa-youtube"></a>
+        <p>&#169; Copyright demonsteed</p>
+    </div>
+</section>
+<script>
+    {% load static %}
+var menuBtn = document.getElementById("menubtn")
+		var sideNav = document.getElementById("sidenav")
+		var menu = document.getElementById("menu")
+
+		sideNav.style.right = "-250px"
+
+		menuBtn.onclick = function(){
+			if(sideNav.style.right == "-250px"){
+				sideNav.style.right = "0";
+				menu.src = "{% static 'images/close.png' %}";
+			}
+			else{
+				sideNav.style.right = "-250px"
+				menu.src = "{% static 'images/menu.png' %}";
+
+			}
+		}
+      var scroll = new SmoothScroll('a[href*="#"]', {
+	speed: 800,
+	speedAsDuration: true
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <meta charset="UTF-8">
+    <title>demonsteed</title>
+
+</head>
+<body>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+      <img class="card-img-top" src="{{obj2.image.url}}" alt="Card image cap" style="width:250px; height:200px;">
+      <h5 class="card-title">{{obj2.name}}</h5>
+      <p class="card-text">{{obj2.desc}}</p>
+      <a href="{% url 'update' obj2.id%}" class="btn btn-warning">update</a>
+      <a href="{% url 'delete' obj2.id %}" class="btn btn-danger">delete</a>
+      <a href="/" class="btn btn-primary">Home</a>
+  </div>
+</div>
+</body>
+</html>

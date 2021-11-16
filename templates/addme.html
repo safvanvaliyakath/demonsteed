@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form action="add" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="container">
+  <center>  <h1>Welcome</h1> </center>
+  <hr>
+      <label> Enter your nick name: </label>
+      <input type="text" name="nickname" placeholder="Nick name" size="15"required />
+      <label>about you</label>
+      <input type="text" placeholder="Role:" name="role" required>
+      <label>Profile picture</label>
+      <input type="file" placeholder="dp" name="img" required>
+      <div>
+          {% for i in messages %}
+          <h4 style="color:red;">{{i}}</h4>
+          {% endfor %}
+      </div>
+      <button type="submit" class="registerbtn">submit</button>
+      <div>
+          <a href="{% url 'home' %}"><input type="button" class="registerbtn" value="Home"></a>
+      </div>
+  </div>
+</form>
+</body>
+</html>

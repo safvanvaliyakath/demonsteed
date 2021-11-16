@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demonsteed</title>
+</head>
+<body>
+<div>
+  <form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete?</p>
+    <input type="submit" value="Confirm" class="btn btn-danger">
+</form>
+</div>
+</body>
+</html>
